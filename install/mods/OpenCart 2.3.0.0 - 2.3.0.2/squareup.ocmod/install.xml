@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<modification>
+    <name>Square</name>
+    <code>squareup</code>
+    <version>2.0.2</version>
+    <author>iSenseLabs</author>
+    <link>https://isenselabs.com</link>
+    <file path="catalog/view/theme/*/template/account/account.tpl">
+        <operation>
+            <search regex="true"><![CDATA[/^(\s*<li><a href="<\?php echo \$recurring; \?>"><\?php echo \$text_recurring; \?><\/a><\/li>\s*)$/m]]></search>
+            <add position="after"><![CDATA[$1
+                <?php if ($square_enabled) : ?>
+                    <li><a href="<?php echo $squareup_manage_cards_link; ?>"><?php echo $squareup_manage_cards_label; ?></a></li>
+                <?php endif; ?>
+            ]]></add>
+        </operation>
+    </file>
+    <file path="catalog/controller/account/account.php">
+        <operation>
+            <search regex="true"><![CDATA[/^(\s*\$data\['header'\] = \$this->load->controller\('common\/header'\);)$/m]]></search>
+            <add position="after"><![CDATA[$1
+                $data['squareup_manage_cards_link'] = $this->url->link('account/squareup', '', true);
+                $this->load->language('account/squareup');
+                $data['squareup_manage_cards_label'] = $this->language->get('text_manage_cards');
+                $data['square_enabled'] = (bool)$this->config->get('squareup_status');
+            ]]></add>
+        </operation>
+    </file>
+    <file path="catalog/view/theme/*/template/{extension/module/,module/}account.tpl">
+        <operation>
+            <search regex="true"><![CDATA[/(<a href="<\?php echo \$recurring; \?>" class="list-group-item"><\?php echo \$text_recurring; \?><\/a>)/]]></search>
+            <add position="after"><![CDATA[$1
+                <?php if ($square_enabled) : ?>
+                    <a href="<?php echo $squareup_manage_cards_link; ?>" class="list-group-item"><?php echo $squareup_manage_cards_label; ?></a>
+                <?php endif; ?>
+            ]]></add>
+        </operation>
+    </file>
+    <file path="catalog/controller/{extension/module/,module/}account.php">
+        <operation>
+            <search regex="true"><![CDATA[/^(\s*\$data\['recurring'\] = \$this->url->link\('account\/recurring', '', (true|'SSL')\);)$/m]]></search>
+            <add position="after"><![CDATA[$1
+                $data['squareup_manage_cards_link'] = $this->url->link('account/squareup', '', true);
+                $this->load->language('account/squareup');
+                $data['squareup_manage_cards_label'] = $this->language->get('text_manage_cards');
+                $data['square_enabled'] = (bool)$this->config->get('squareup_status');
+            ]]></add>
+        </operation>
+    </file>
+    <file path="admin/controller/common/dashboard.php">
+        <operation>
+            <search regex="true"><![CDATA[/^(\s*\$data\['footer'\]\s*=\s*\$this->load->controller\('common\/footer'\);)$/m]]></search>
+            <add position="after"><![CDATA[$1
+                $this->config->load('vendor/squareup');
+
+                $data['squareup_enabled'] = $this->user->hasPermission('access', $this->config->get('squareup_route'));
+                $data['squareup_url'] = html_entity_decode($this->url->link($this->config->get('squareup_route') . '/access_token_alert', 'token=' . $this->session->data['token'], true));
+            ]]></add>
+        </operation>
+    </file>
+    <file path="admin/view/template/common/dashboard.tpl">
+        <operation>
+            <search regex="true"><![CDATA[/^(\s*\<\?php\s*echo\s*\$footer;\s*\?>\s*)$/m]]></search>
+            <add position="after"><![CDATA[
+                <?php if ($squareup_enabled) : ?>
+                    <script type="text/javascript">
+                        $(document).ready(function() {
+                            $.ajax({
+                                url : '<?php echo $squareup_url; ?>',
+                                dataType : 'html',
+                                success : function(html) {
+                                    $('#content > .container-fluid').prepend(html);
+                                }
+                            });
+                        });
+                    </script>
+                <?php endif; ?>
+$1]]></add>
+        </operation>
+    </file>
+</modification>

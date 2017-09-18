@@ -1,0 +1,22 @@
+.margin-bottom {
+    margin-bottom: 10px;
+}
+
+.form-info {
+    margin-top: 9px;
+}
+
+.button-wrapper {
+    display: inline-block;
+}
+
+.input-group-addon-btn {
+    background-color: transparent;
+    border: none;
+    padding: 0 0 0 10px;
+}
+
+input[type='checkbox'] {
+    margin-top: 10px;
+    cursor: pointer;
+}

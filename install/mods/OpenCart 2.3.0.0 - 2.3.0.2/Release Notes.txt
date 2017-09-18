@@ -1,0 +1,14 @@
+Square 2.0.2 (OpenCart 2.x)
+==========================================
+- Bug fix: Capturing an authorized transaction no longer changes the order status to Partially Refunded.
+- Bug fix: Undefined variable has_selected_card resolved for Journal Checkout.
+- Bug fix: Template files now revert to the default theme if they do not exist.
+- Improvement: Introduce Journal2 template files.
+
+Square 2.0.1 (OpenCart 2.x)
+==========================================
+- Improvement: Video tutorial button now has text.
+
+Square 2.0.0 (OpenCart 2.x)
+==========================================
+- Initial release.

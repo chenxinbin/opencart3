@@ -1,0 +1,6 @@
+Installation and Update Instructions
+==========================================
+
+Please follow the instructions here:
+
+http://docs.isenselabs.com/square
