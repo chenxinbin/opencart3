@@ -32,11 +32,6 @@ class ControllerCommonFooter extends Controller {
 		$data['powered'] = sprintf($this->language->get('text_powered'), $this->config->get('config_name'), date('Y', time()));
 		$data['miit'] = $this->config->get('config_miit');
 
-		//百度统计
-		$data['analytics_baidu_enabled'] = (bool)$this->config->get('analytics_baidu_status');
-		if($data['analytics_baidu_enabled'])
-			$data['analytics_baidu_code'] = htmlspecialchars_decode($this->config->get('analytics_baidu_code'));
-
 		// Whos Online
 		if ($this->config->get('config_customer_online')) {
 			$this->load->model('tool/online');

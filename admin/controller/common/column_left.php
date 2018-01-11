@@ -254,6 +254,112 @@ class ControllerCommonColumnLeft extends Controller {
 				);
 			}
 			
+			// Extension
+			$marketplace = array();
+			
+			if ($this->user->hasPermission('access', 'marketplace/marketplace')) {		
+				$marketplace[] = array(
+					'name'	   => $this->language->get('text_marketplace'),
+					'href'     => $this->url->link('marketplace/marketplace', 'user_token=' . $this->session->data['user_token'], true),
+					'children' => array()		
+				);					
+			}
+			
+			if ($this->user->hasPermission('access', 'marketplace/installer')) {		
+				$marketplace[] = array(
+					'name'	   => $this->language->get('text_installer'),
+					'href'     => $this->url->link('marketplace/installer', 'user_token=' . $this->session->data['user_token'], true),
+					'children' => array()		
+				);					
+			}	
+			
+			if ($this->user->hasPermission('access', 'marketplace/extension')) {		
+				$marketplace[] = array(
+					'name'	   => $this->language->get('text_extension'),
+					'href'     => $this->url->link('marketplace/extension', 'user_token=' . $this->session->data['user_token'], true),
+					'children' => array()
+				);
+			}
+								
+			if ($this->user->hasPermission('access', 'marketplace/modification')) {
+				$marketplace[] = array(
+					'name'	   => $this->language->get('text_modification'),
+					'href'     => $this->url->link('marketplace/modification', 'user_token=' . $this->session->data['user_token'], true),
+					'children' => array()		
+				);
+			}
+			
+			if ($this->user->hasPermission('access', 'marketplace/event')) {
+				$marketplace[] = array(
+					'name'	   => $this->language->get('text_event'),
+					'href'     => $this->url->link('marketplace/event', 'user_token=' . $this->session->data['user_token'], true),
+					'children' => array()		
+				);
+			}
+					
+			if ($marketplace) {					
+				$data['menus'][] = array(
+					'id'       => 'menu-extension',
+					'icon'	   => 'fa-puzzle-piece', 
+					'name'	   => $this->language->get('text_extension'),
+					'href'     => '',
+					'children' => $marketplace
+				);		
+			}
+			
+			// Design
+			$design = array();
+			
+			if ($this->user->hasPermission('access', 'design/layout')) {
+				$design[] = array(
+					'name'	   => $this->language->get('text_layout'),
+					'href'     => $this->url->link('design/layout', 'user_token=' . $this->session->data['user_token'], true),
+					'children' => array()
+				);	
+			}
+			
+			if ($this->user->hasPermission('access', 'design/theme')) {	
+				$design[] = array(
+					'name'	   => $this->language->get('text_theme'),
+					'href'     => $this->url->link('design/theme', 'user_token=' . $this->session->data['user_token'], true),
+					'children' => array()		
+				);	
+			}
+			
+			if ($this->user->hasPermission('access', 'design/translation')) {
+				$design[] = array(
+					'name'	   => $this->language->get('text_language_editor'),
+					'href'     => $this->url->link('design/translation', 'user_token=' . $this->session->data['user_token'], true),
+					'children' => array()		
+				);	
+			}
+						
+			if ($this->user->hasPermission('access', 'design/banner')) {
+				$design[] = array(
+					'name'	   => $this->language->get('text_banner'),
+					'href'     => $this->url->link('design/banner', 'user_token=' . $this->session->data['user_token'], true),
+					'children' => array()		
+				);
+			}
+			
+			if ($this->user->hasPermission('access', 'design/seo_url')) {
+				$design[] = array(
+					'name'	   => $this->language->get('text_seo_url'),
+					'href'     => $this->url->link('design/seo_url', 'user_token=' . $this->session->data['user_token'], true),
+					'children' => array()		
+				);
+			}
+						
+			if ($design) {
+				$data['menus'][] = array(
+					'id'       => 'menu-design',
+					'icon'	   => 'fa-television', 
+					'name'	   => $this->language->get('text_design'),
+					'href'     => '',
+					'children' => $design
+				);	
+			}
+			
 			// Sales
 			$sale = array();
 			
@@ -418,113 +524,6 @@ class ControllerCommonColumnLeft extends Controller {
 					'name'	   => $this->language->get('text_baidu_seo'),
 					'href'     => '',
 					'children' => $baidu
-				);	
-			}
-			
-
-			// Extension
-			$marketplace = array();
-			
-			if ($this->user->hasPermission('access', 'marketplace/marketplace')) {		
-				$marketplace[] = array(
-					'name'	   => $this->language->get('text_marketplace'),
-					'href'     => $this->url->link('marketplace/marketplace', 'user_token=' . $this->session->data['user_token'], true),
-					'children' => array()		
-				);					
-			}
-			
-			if ($this->user->hasPermission('access', 'marketplace/installer')) {		
-				$marketplace[] = array(
-					'name'	   => $this->language->get('text_installer'),
-					'href'     => $this->url->link('marketplace/installer', 'user_token=' . $this->session->data['user_token'], true),
-					'children' => array()		
-				);					
-			}	
-			
-			if ($this->user->hasPermission('access', 'marketplace/extension')) {		
-				$marketplace[] = array(
-					'name'	   => $this->language->get('text_extension'),
-					'href'     => $this->url->link('marketplace/extension', 'user_token=' . $this->session->data['user_token'], true),
-					'children' => array()
-				);
-			}
-								
-			if ($this->user->hasPermission('access', 'marketplace/modification')) {
-				$marketplace[] = array(
-					'name'	   => $this->language->get('text_modification'),
-					'href'     => $this->url->link('marketplace/modification', 'user_token=' . $this->session->data['user_token'], true),
-					'children' => array()		
-				);
-			}
-			
-			if ($this->user->hasPermission('access', 'marketplace/event')) {
-				$marketplace[] = array(
-					'name'	   => $this->language->get('text_event'),
-					'href'     => $this->url->link('marketplace/event', 'user_token=' . $this->session->data['user_token'], true),
-					'children' => array()		
-				);
-			}
-			
-			if ($marketplace) {					
-				$data['menus'][] = array(
-					'id'       => 'menu-extension',
-					'icon'	   => 'fa-puzzle-piece', 
-					'name'	   => $this->language->get('text_extension'),
-					'href'     => '',
-					'children' => $marketplace
-				);		
-			}
-			
-			// Design
-			$design = array();
-			
-			if ($this->user->hasPermission('access', 'design/layout')) {
-				$design[] = array(
-					'name'	   => $this->language->get('text_layout'),
-					'href'     => $this->url->link('design/layout', 'user_token=' . $this->session->data['user_token'], true),
-					'children' => array()
-				);	
-			}
-			
-			if ($this->user->hasPermission('access', 'design/theme')) {	
-				$design[] = array(
-					'name'	   => $this->language->get('text_theme'),
-					'href'     => $this->url->link('design/theme', 'user_token=' . $this->session->data['user_token'], true),
-					'children' => array()		
-				);	
-			}
-			
-			if ($this->user->hasPermission('access', 'design/translation')) {
-				$design[] = array(
-					'name'	   => $this->language->get('text_language_editor'),
-					'href'     => $this->url->link('design/translation', 'user_token=' . $this->session->data['user_token'], true),
-					'children' => array()		
-				);	
-			}
-						
-			if ($this->user->hasPermission('access', 'design/banner')) {
-				$design[] = array(
-					'name'	   => $this->language->get('text_banner'),
-					'href'     => $this->url->link('design/banner', 'user_token=' . $this->session->data['user_token'], true),
-					'children' => array()		
-				);
-			}
-			
-			if ($this->user->hasPermission('access', 'design/seo_url')) {
-				$design[] = array(
-					'name'	   => $this->language->get('text_seo_url'),
-					'href'     => $this->url->link('design/seo_url', 'user_token=' . $this->session->data['user_token'], true),
-					'children' => array()		
-				);
-			}
-						
-			if ($design) {
-				$data['menus'][] = array(
-					'id'       => 'menu-design',
-					'icon'	   => 'fa-television', 
-					'name'	   => $this->language->get('text_design'),
-					'href'     => '',
-					'children' => $design
 				);	
 			}
 			

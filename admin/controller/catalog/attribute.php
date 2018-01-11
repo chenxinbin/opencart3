@@ -114,7 +114,7 @@ class ControllerCatalogAttribute extends Controller {
 		if (isset($this->request->get['sort'])) {
 			$sort = $this->request->get['sort'];
 		} else {
-			$sort = 'attribute_group,1';
+			$sort = 'ad.name';
 		}
 
 		if (isset($this->request->get['order'])) {

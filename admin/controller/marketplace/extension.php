@@ -7,7 +7,6 @@ class ControllerMarketplaceExtension extends Controller {
 
 		$this->document->setTitle($this->language->get('heading_title'));
 
-		//导航条
 		$data['breadcrumbs'] = array();
 
 		$data['breadcrumbs'][] = array(
@@ -34,6 +33,7 @@ class ControllerMarketplaceExtension extends Controller {
 		
 		foreach ($files as $file) {
 			$extension = basename($file, '.php');
+			
 			// Compatibility code for old extension folders
 			$this->load->language('extension/extension/' . $extension, 'extension');
 		
@@ -47,7 +47,7 @@ class ControllerMarketplaceExtension extends Controller {
 				);
 			}			
 		}
-
+		
 		$data['header'] = $this->load->controller('common/header');
 		$data['column_left'] = $this->load->controller('common/column_left');
 		$data['footer'] = $this->load->controller('common/footer');

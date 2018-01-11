@@ -121,7 +121,6 @@ final class Loader {
 			foreach ($data as $key => $value) {
 				$template->set($key, $value);
 			}
-            //var_dump($this->registry->get('config')->get('template_cache'));
 
 			$output = $template->render($this->registry->get('config')->get('template_directory') . $route, $this->registry->get('config')->get('template_cache'));		
 		}
