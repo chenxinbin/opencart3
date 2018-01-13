@@ -1,0 +1,20 @@
+[13-Jan-2018 11:14:59 PRC] PHP Fatal error:  Uncaught Twig_Error_Loader: The "/www/htdocs/opencart/admin/view/theme/" directory does not exist. in /www/htdocs/opencart/system/library/template/Twig/Loader/Filesystem.php:94
+Stack trace:
+#0 /www/htdocs/opencart/system/library/template/Twig/Loader/Filesystem.php(76): Twig_Loader_Filesystem->addPath('/www/htdocs/ope...', '__main__')
+#1 /www/htdocs/opencart/system/library/template/Twig/Loader/Filesystem.php(34): Twig_Loader_Filesystem->setPaths(Array)
+#2 /www/htdocs/opencart/system/library/template/twig.php(20): Twig_Loader_Filesystem->__construct('/www/htdocs/ope...')
+#3 /www/htdocs/opencart/system/library/template.php(51): Template\Twig->render('common/header', '0')
+#4 /www/htdocs/opencart/system/engine/loader.php(125): Template->render('common/header', '0')
+#5 /www/htdocs/opencart/admin/controller/common/header.php(79): Loader->view('common/header', Array)
+#6 /www/htdocs/opencart/system/engine/action.php(79): ControllerCommonHeader->index(Array)
+#7 /www/htdocs/opencart/system/engine/loader.php(48): Action- in /www/htdocs/opencart/system/library/template/Twig/Loader/Filesystem.php on line 94
+[13-Jan-2018 11:15:00 PRC] PHP Fatal error:  Uncaught Twig_Error_Loader: The "/www/htdocs/opencart/admin/view/theme/" directory does not exist. in /www/htdocs/opencart/system/library/template/Twig/Loader/Filesystem.php:94
+Stack trace:
+#0 /www/htdocs/opencart/system/library/template/Twig/Loader/Filesystem.php(76): Twig_Loader_Filesystem->addPath('/www/htdocs/ope...', '__main__')
+#1 /www/htdocs/opencart/system/library/template/Twig/Loader/Filesystem.php(34): Twig_Loader_Filesystem->setPaths(Array)
+#2 /www/htdocs/opencart/system/library/template/twig.php(20): Twig_Loader_Filesystem->__construct('/www/htdocs/ope...')
+#3 /www/htdocs/opencart/system/library/template.php(51): Template\Twig->render('common/header', '0')
+#4 /www/htdocs/opencart/system/engine/loader.php(125): Template->render('common/header', '0')
+#5 /www/htdocs/opencart/admin/controller/common/header.php(79): Loader->view('common/header', Array)
+#6 /www/htdocs/opencart/system/engine/action.php(79): ControllerCommonHeader->index(Array)
+#7 /www/htdocs/opencart/system/engine/loader.php(48): Action- in /www/htdocs/opencart/system/library/template/Twig/Loader/Filesystem.php on line 94

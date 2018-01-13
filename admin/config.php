@@ -1,18 +1,18 @@
 <?php
-// HTTP
-define('HTTP_SERVER', 'http://opencart.ycome.com/admin/');
-define('HTTP_CATALOG', 'http://opencart.ycome.com/');
+define('HTTP_SERVER', 'http://demo.opencart3.cn/admin/');
+define('HTTP_CATALOG', 'http://demo.opencart3.cn/');
 
 // HTTPS
-define('HTTPS_SERVER', 'http://opencart.ycome.com/admin/');
-define('HTTPS_CATALOG', 'http://opencart.ycome.com/');
+define('HTTPS_SERVER', 'http://demo.opencart3.cn/admin/');
+define('HTTPS_CATALOG', 'http://demo.opencart3.cn/');
 
-// DIR
-define('DIR_APPLICATION', 'C:/xampp/htdocs/opencart.ycome.com/admin/');
-define('DIR_SYSTEM', 'C:/xampp/htdocs/opencart.ycome.com/system/');
-define('DIR_IMAGE', 'C:/xampp/htdocs/opencart.ycome.com/image/');
-define('DIR_STORAGE', 'C:/xampp/htdocs/storage/');
-define('DIR_CATALOG', 'C:/xampp/htdocs/opencart.ycome.com/catalog/');
+
+//DIR
+define('DIR_APPLICATION', '/www/htdocs/opencart/admin/');
+define('DIR_SYSTEM', '/www/htdocs/opencart/system/');
+define('DIR_IMAGE', '/www/htdocs/opencart/image/');
+define('DIR_STORAGE', '/www/htdocs/storage/');
+define('DIR_CATALOG', '/www/htdocs/opencart/catalog/');
 define('DIR_LANGUAGE', DIR_APPLICATION . 'language/');
 define('DIR_TEMPLATE', DIR_APPLICATION . 'view/template/');
 define('DIR_CONFIG', DIR_SYSTEM . 'config/');
@@ -26,11 +26,10 @@ define('DIR_UPLOAD', DIR_STORAGE . 'upload/');
 // DB
 define('DB_DRIVER', 'mysqli');
 define('DB_HOSTNAME', 'localhost');
-define('DB_USERNAME', 'root');
-define('DB_PASSWORD', '');
+define('DB_USERNAME', 'opencart');
+define('DB_PASSWORD', 's!2v3m4xxs#');
 define('DB_DATABASE', 'opencart');
 define('DB_PORT', '3306');
 define('DB_PREFIX', 'mcc_');
 
-// MyCnCart API
 define('MYCNCART_SERVER', 'https://www.mycncart.com/');
